@@ -1,5 +1,5 @@
 # default-jul
-The most default JUL (java util logging) implementation, no configs, just import and go.  
+The most default JUL (java util logging) wrapper implementation, no configs, just import and go.  
 Currently only console logging is available with four the most essential log levels (`info`, `debug`, `warning` and `error`).
 
 ### Add dependency
