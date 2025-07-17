@@ -9,8 +9,8 @@
     <version>0.0.1</version>
     <packaging>jar</packaging>
     <name>default-jul</name>
-    <url></url>
-    <description></description>
+    <url>https://github.com/Jorgenssen/default-jul</url>
+    <description>Default no-config ready-to-go JUL logger implementation</description>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
