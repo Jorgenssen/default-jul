@@ -1,4 +1,4 @@
-package pt.jorgenssen.defaultconsolejul;
+package pt.jorgenssen.defaultjul;
 
 import java.util.logging.Level;
 
