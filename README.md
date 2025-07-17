@@ -5,7 +5,7 @@ Currently only console logging is available with four the most essential log lev
 > **_NOTE:  This small lib is only for local projects or local debug purposes_**
 
 ### Add dependency and declare Github repo
-
+[Working with the Apache Maven registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)    
 *Maven settings.xml*
 ```xml
   <profiles>
@@ -43,6 +43,7 @@ Currently only console logging is available with four the most essential log lev
 </dependency>
 ```
 
+[Working with the Gradle registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)    
 *Gradle build.gradle*
 ```groovy
 repositories {
