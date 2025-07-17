@@ -2,7 +2,39 @@
 The most default JUL (java util logging) wrapper implementation, no configs, just import and go.  
 Currently only console logging is available with four the most essential log levels (`info`, `debug`, `warning` and `error`).
 
-### Add dependency
+> **_NOTE:  This small lib is only for local projects or local debug purposes_**
+
+### Add dependency and declare Github repo
+
+*Maven settings.xml*
+```xml
+  <profiles>
+    <profile>
+      <id>github</id>
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+        <repository>
+          <id>github</id>
+          <url>https://maven.pkg.github.com/Jorgenssen/default-jul</url>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+
+  <servers>
+    <server>
+      <id>github</id>
+      <username>YOUR_GITHUB_NAME</username>
+      <password>YOUR_GITHUB_PASSWORD</password>
+    </server>
+  </servers>
+
+```
+
+*Maven pom.xml*
 ```xml
 <dependency>
     <groupId>pt.jorgenssen</groupId>
@@ -11,7 +43,28 @@ Currently only console logging is available with four the most essential log lev
 </dependency>
 ```
 
+*Gradle build.gradle*
+```groovy
+repositories {
+    mavenCentral()
+    maven {
+        name = "github"
+        url = uri("https://maven.pkg.github.com/Jorgenssen/default-jul")
+        credentials {
+            username = 'YOUR_GITHUB_NAME'
+            password = 'YOUR_GITHUB_PASSWORD'
+        }
+    }
+    mavenLocal()
+}
+
+dependencies {
+    implementation "pt.jorgenssen:defaultjul:0.0.1"
+}
+```
+
 ### Instantiate `LoggingHelper`
+
 ```java
 package pt.jorgenssen;
 
