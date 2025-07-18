@@ -6,11 +6,11 @@
 
     <groupId>pt.jorgenssen</groupId>
     <artifactId>defaultjul</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
     <name>default-jul</name>
     <url>https://github.com/Jorgenssen/default-jul</url>
-    <description>Default no-config ready-to-go JUL logger implementation</description>
+    <description>Default no-config ready-to-go JUL logger's wrapper implementation</description>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

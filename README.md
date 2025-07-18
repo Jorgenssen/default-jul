@@ -1,6 +1,6 @@
 # default-jul
 The most default JUL (java util logging) wrapper implementation, no configs, just import and go.  
-Currently only console logging is available with four the most essential log levels (`info`, `debug`, `warning` and `error`).
+Currently console and file logging are available with four the most essential log levels (`info`, `debug`, `warning` and `error`).
 
 > **_NOTE:  This small lib is only for local projects or local debug purposes_**
 
@@ -85,9 +85,14 @@ public class Main {
 ```
 
 ### See the result
+Console log
 ```text
 DEBUG   2025-07-17 22:20:51 [main] pt.jorgenssen.Main - Print debug message 
 INFO    2025-07-17 22:20:51 [main] pt.jorgenssen.Main - Print info message 
 WARNING 2025-07-17 22:20:51 [main] pt.jorgenssen.Main - Print warning message 
 ERROR   2025-07-17 22:20:51 [main] pt.jorgenssen.Main - Print error message 
 ```
+
+File log (placed at project's root directory)
+![img.png](img.png)
+![img_1.png](img_1.png)

@@ -1,14 +1,12 @@
 package pt.jorgenssen.defaultjul;
 
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Level;
-import java.util.logging.LogRecord;
-import java.util.logging.Logger;
+import java.io.IOException;
+import java.util.logging.*;
 
 public class LoggingHelper {
 
-    static final Level ERROR = new CustomLevel("ERROR", 1000);
-    static final Level DEBUG = new CustomLevel("DEBUG", 700);
+    private static final Level ERROR = new CustomLevel("ERROR", 1000);
+    private static final Level DEBUG = new CustomLevel("DEBUG", 700);
 
 
     private final Logger logger;
@@ -19,11 +17,23 @@ public class LoggingHelper {
         this.logger = Logger.getLogger(className);
         logger.setUseParentHandlers(false);
 
+        CustomFormatter formatter = new CustomFormatter();
+
         ConsoleHandler ch = new ConsoleHandler();
         ch.setLevel(Level.FINEST);
-        ch.setFormatter(new CustomFormatter());
+        ch.setFormatter(formatter);
+
+        FileHandler fh;
+        try {
+            fh = new FileHandler("default_app.log", true);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        fh.setFormatter(formatter);
+        fh.setLevel(Level.FINEST);
 
         logger.addHandler(ch);
+        logger.addHandler(fh);
         logger.setLevel(Level.FINEST);
     }
 
