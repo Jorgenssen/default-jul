@@ -27,7 +27,7 @@ public class LoggingHelper {
         try {
             fh = new FileHandler("default_app.log", true);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Failed to create file handler for log file 'default_app.log'", e);
         }
         fh.setFormatter(formatter);
         fh.setLevel(Level.FINEST);
