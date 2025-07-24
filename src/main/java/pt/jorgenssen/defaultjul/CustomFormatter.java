@@ -23,7 +23,7 @@ class CustomFormatter extends Formatter {
             try {
                 prop.load(stream);
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                throw new RuntimeException("Failed to load logging.properties configuration file", e);
             }
         }
     }
