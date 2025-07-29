@@ -96,3 +96,11 @@ ERROR   2025-07-17 22:20:51 [main] pt.jorgenssen.Main - Print error message
 File log (placed at project's root directory)
 ![img_gradle.png](images/img_gradle.png)
 ![img_maven.png](images/img_maven.png)
+
+### Possible configuration
+For now, it is possible to modify two parameters: log file path and log line format.
+To do it you need to put `logging.properties` file to your `resources` directory with parameters defined:
+```
+java.util.logging.FileHandler.pattern = path/to/your/log/file.log
+java.util.logging.CustomFormatter.format = %2$-7s %1$tF %1$tT %3$s %4$s - %6$s %n%7$s
+```
