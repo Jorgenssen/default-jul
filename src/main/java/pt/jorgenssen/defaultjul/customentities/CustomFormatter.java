@@ -1,34 +1,21 @@
-package pt.jorgenssen.defaultjul;
+package pt.jorgenssen.defaultjul.customentities;
 
-import java.io.IOException;
-import java.io.InputStream;
+import pt.jorgenssen.defaultjul.configuration.Parameters;
+import pt.jorgenssen.defaultjul.configuration.PropertiesLoader;
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Optional;
-import java.util.Properties;
 import java.util.Set;
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
 
-class CustomFormatter extends Formatter {
+public class CustomFormatter extends Formatter {
 
-    private static final Properties prop = new Properties();
 
-    static {
-        ClassLoader loader = Thread.currentThread().getContextClassLoader();
-        InputStream stream = loader.getResourceAsStream("logging.properties");
-        if (stream != null) {
-            try {
-                prop.load(stream);
-            } catch (IOException e) {
-                throw new RuntimeException("Failed to load logging.properties configuration file", e);
-            }
-        }
-    }
-
-    CustomFormatter() {}
+    public CustomFormatter() {}
 
     @Override
     public String format(LogRecord record) {
@@ -42,8 +29,11 @@ class CustomFormatter extends Formatter {
                 .orElse("Thread with ID " + threadId);
 
         // See also: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Formatter.html
-        var formatString = prop.getProperty("java.util.logging.CustomFormatter.format",
-                "%2$-7s %1$tF %1$tT [%3$s] %4$s - %6$s %n%7$s");
+        var formatString = PropertiesLoader.getProperties()
+                .getProperty(
+                        Parameters.CUSTOM_FORMATTER_FORMAT_PROPERTY,
+                        Parameters.CUSTOM_FORMATTER_FORMAT_LINE
+                );
 
         return String.format(
                 formatString,

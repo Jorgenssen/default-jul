@@ -1,5 +1,10 @@
 package pt.jorgenssen.defaultjul;
 
+import pt.jorgenssen.defaultjul.configuration.Parameters;
+import pt.jorgenssen.defaultjul.configuration.PropertiesLoader;
+import pt.jorgenssen.defaultjul.customentities.CustomFormatter;
+import pt.jorgenssen.defaultjul.customentities.CustomLevel;
+
 import java.io.IOException;
 import java.util.logging.*;
 
@@ -25,7 +30,11 @@ public class LoggingHelper {
 
         FileHandler fh;
         try {
-            fh = new FileHandler("default_app.log", true);
+            fh = new FileHandler(PropertiesLoader.getProperties()
+                    .getProperty(
+                            Parameters.DEFAULT_LOG_FILE_PATH_PROPERTY,
+                            Parameters.DEFAULT_LOG_FILE_PATH
+                    ), true);
         } catch (IOException e) {
             throw new RuntimeException("Failed to create file handler for log file 'default_app.log'", e);
         }

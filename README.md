@@ -94,5 +94,5 @@ ERROR   2025-07-17 22:20:51 [main] pt.jorgenssen.Main - Print error message
 ```
 
 File log (placed at project's root directory)
-![img_gradle.png](img_gradle.png)
-![img_maven.png](img_maven.png)
+![img_gradle.png](images/img_gradle.png)
+![img_maven.png](images/img_maven.png)
